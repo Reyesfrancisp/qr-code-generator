@@ -1,6 +1,10 @@
 # qr-code-generator
 docker qr code generator assignment
 
+## Required Links
+* **GitHub Repository:** [https://github.com/Reyesfrancisp/qr-code-generator](https://github.com/Reyesfrancisp/qr-code-generator)
+* **DockerHub Image:** [https://hub.docker.com/r/reyesfrancisp/qr-code-generator-app](https://hub.docker.com/r/reyesfrancisp/qr-code-generator-app)
+
 ## Screenshots
 
 ### 1. Container Application Running
