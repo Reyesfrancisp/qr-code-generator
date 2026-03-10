@@ -1,0 +1,32 @@
+name: Docker Build and Push
+
+# This tells GitHub to run the action every time you push code to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out your repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Log in to DockerHub using your secure credentials
+      - name: Log in to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Step 3: Build the Docker image and push it to your DockerHub account
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          # Tags the image with your DockerHub username and the app name
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/qr-code-generator-app:latest
